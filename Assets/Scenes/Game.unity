@@ -545,7 +545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition1: {fileID: 1674752864}
   startPosition2: {fileID: 419163299}
-  playerPrefab: {fileID: 4132933619690498308, guid: 9befdb9f85965044c9f2b416f0372aa7, type: 3}
+  player1: {fileID: 664373205062893865, guid: 7a3d03aa5ac754f43b89af9e846d61f9, type: 3}
+  player2: {fileID: 8459163941653534042, guid: cce7428577c665f4aaa8c492d45c25c0, type: 3}
   joystick: {fileID: 1349688819}
 --- !u!224 &1622800458
 RectTransform:

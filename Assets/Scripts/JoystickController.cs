@@ -52,7 +52,11 @@ public class JoystickController : MonoBehaviour
                         {
                             manipulator.position = center;
                             moveTouchId = -1;
-                            if (playerController != null) playerController.direction = new Vector3(0, 0, 0);
+                            if (playerController != null)
+                            {
+                                playerController.isMooving = false;
+                                playerController.direction = new Vector3(0, 0, 0);
+                            }
                         }
                         break;
                     }
@@ -82,7 +86,11 @@ public class JoystickController : MonoBehaviour
         {
             moveTouchId = -1;
             manipulator.position = center;
-            if (playerController != null) playerController.direction = new Vector3(0, 0, 0);
+            if (playerController != null)
+            {
+                playerController.isMooving = false;
+                playerController.direction = new Vector3(0, 0, 0);
+            }
         }
         if (moveTouchId > 0)
         {
@@ -97,6 +105,10 @@ public class JoystickController : MonoBehaviour
         if (Math.Abs(direction.x) > 0.75 || Math.Abs(direction.y) > 0.75) direction = direction.normalized;
         manipulator.position = center;
         manipulator.Translate(direction * 0.75f);
-        if (playerController != null) playerController.direction = direction; 
+        if (playerController != null)
+        {
+            playerController.isMooving = true;
+            playerController.direction = direction;
+        } 
     }
 }
