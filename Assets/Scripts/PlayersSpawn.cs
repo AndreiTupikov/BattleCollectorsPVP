@@ -8,6 +8,7 @@ public class PlayersSpawn : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public JoystickController joystick;
+    public FireButton fireButton;
 
     private void Start()
     {
@@ -16,5 +17,6 @@ public class PlayersSpawn : MonoBehaviour
         var playerPrefab = isFirstPlayer ? player1 : player2;
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, position.position, Quaternion.identity);
         joystick.playerController = player.GetComponent<PlayerController>();
+        fireButton.playerController = player.GetComponent<PlayerController>();
     }
 }

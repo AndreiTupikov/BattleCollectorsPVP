@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        if (PhotonNetwork.PlayerList.Length == maxPlayers) PhotonNetwork.LoadLevel("Game");
+        /*if (PhotonNetwork.PlayerList.Length == maxPlayers)*/ PhotonNetwork.LoadLevel("Game");
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
