@@ -26,6 +26,7 @@ public class PlayersSpawn : MonoBehaviour
         player.GetComponent<PlayerController>().pointsCounter = pointsCounter;
         info.GetComponentInChildren<Text>().text = DataHolder.playerName;
         GetComponent<GameManager>().SendPlayerInfo(info.GetComponent<PhotonView>().ViewID, DataHolder.playerName);
+        GetComponent<GameManager>().player = player.GetComponent<PlayerController>();
         joystick.playerController = player.GetComponent<PlayerController>();
         fireButton.playerController = player.GetComponent<PlayerController>();
     }

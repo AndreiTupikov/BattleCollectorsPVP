@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject joystick;
+    public GameObject fireButton;
+    public GameObject endGameScreen;
+    public Text winnerName;
+    public Text winnerScore;
+    public PlayerController player;
     private PhotonView view;
     private RectTransform canvas;
 
@@ -38,5 +44,34 @@ public class GameManager : MonoBehaviour
         health.fillAmount = hp;
         if (health.fillAmount < 0.7) health.color = Color.yellow;
         if (health.fillAmount < 0.4) health.color = Color.red;
+    }
+
+    public void EndGame(bool looser)
+    {
+        joystick.SetActive(false);
+        fireButton.SetActive(false);
+        endGameScreen.SetActive(true);
+        if (looser) view.RPC("WinGame", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    private void WinGame()
+    {
+        EndGame(false);
+        winnerName.text = DataHolder.playerName;
+        winnerScore.text += player.score;
+        view.RPC("LoseGame", RpcTarget.Others, DataHolder.playerName, player.score);
+    }
+
+    [PunRPC]
+    private void LoseGame(string name, int score)
+    {
+        winnerName.text = name;
+        winnerScore.text += score;
+    }
+
+    public void BackToLobby()
+    {
+        PhotonNetwork.LoadLevel("Lobby");
     }
 }

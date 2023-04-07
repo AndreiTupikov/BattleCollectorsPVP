@@ -42,6 +42,8 @@ MonoBehaviour:
   - SetPlayerInfo
   - SetAnotherPlayerInfo
   - SetHealthPoints
+  - WinGame
+  - LoseGame
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
