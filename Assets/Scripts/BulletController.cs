@@ -5,8 +5,9 @@ public class BulletController : MonoBehaviour
 {
     public float speed;
 
-    private void Start()
+    private void Awake()
     {
+        if (DataHolder.isSoundOn) GetComponent<AudioSource>().Play();
         Destroy(gameObject, 3);
     }
 

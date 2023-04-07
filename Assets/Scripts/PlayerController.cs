@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Transform playerInfo;
     public Transform gunBarrel;
     public GameManager gameManager;
-    public Text pointsCounter;
+    public Text scoreText;
     private Image healthLevel;
     private PhotonView view;
     public int score = 0;
@@ -73,11 +73,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             health -= 10;
             healthLevel.fillAmount -= 0.1f;
-            if (healthLevel.fillAmount < 0.7) healthLevel.color = Color.yellow;
-            if (healthLevel.fillAmount < 0.4) healthLevel.color = Color.red;
+            if (health < 70) healthLevel.color = Color.yellow;
+            if (health < 40) healthLevel.color = Color.red;
             if (health <= 0) Defeat();
             gameManager.SendPlayerHealth(playerInfo.GetComponent<PhotonView>().ViewID, healthLevel.fillAmount);
         }
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
         {
             PhotonNetwork.Destroy(other.gameObject);
             score++;
-            pointsCounter.text = score.ToString();
+            scoreText.text = score.ToString();
         }
     }
 

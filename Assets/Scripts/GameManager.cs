@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void BackToLobby()
     {
+        PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("Lobby");
     }
 }

@@ -12,7 +12,7 @@ public class PlayersSpawn : MonoBehaviour
     public RectTransform canvas;
     public JoystickController joystick;
     public FireButton fireButton;
-    public Text pointsCounter;
+    public Text score;
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class PlayersSpawn : MonoBehaviour
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, position.position, position.rotation);
         player.GetComponent<PlayerController>().playerInfo = info.transform;
         player.GetComponent<PlayerController>().gameManager = GetComponent<GameManager>();
-        player.GetComponent<PlayerController>().pointsCounter = pointsCounter;
+        player.GetComponent<PlayerController>().scoreText = score;
         info.GetComponentInChildren<Text>().text = DataHolder.playerName;
         GetComponent<GameManager>().SendPlayerInfo(info.GetComponent<PhotonView>().ViewID, DataHolder.playerName);
         GetComponent<GameManager>().player = player.GetComponent<PlayerController>();

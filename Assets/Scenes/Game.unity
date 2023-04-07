@@ -901,7 +901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096377402}
   m_Layer: 0
-  m_Name: PointsCounter
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   canvas: {fileID: 1821597448}
   joystick: {fileID: 1349688819}
   fireButton: {fileID: 25824869}
-  pointsCounter: {fileID: 1796975172}
+  score: {fileID: 1796975172}
 --- !u!4 &1622800458
 Transform:
   m_ObjectHideFlags: 0
@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 1796975173}
   - component: {fileID: 1796975172}
   m_Layer: 0
-  m_Name: Count
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
