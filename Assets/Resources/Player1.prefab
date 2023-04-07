@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3398252249153737841}
   - component: {fileID: 8515214927871989275}
   - component: {fileID: 5115919018550101955}
+  - component: {fileID: 2780216201313207825}
+  - component: {fileID: 4355349525063816527}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -31,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 664373205062893865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 603307043148628498}
@@ -78,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 362d6050f56bd1846b7bbcec3d009939, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -162,9 +164,9 @@ MonoBehaviour:
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
   m_SynchronizeParameters:
-  - Type: 1
+  - Type: 4
     SynchronizeType: 1
-    Name: speed
+    Name: mooving
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -181,12 +183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  reloadTime: 5
+  health: 100
+  shootDamage: 0
   direction: {x: 0, y: 0, z: 0}
   isMooving: 0
   isShooting: 0
   bullet: {fileID: 8257588031343161103, guid: 353f7e1f7af8e894188f82b6410a0cea, type: 3}
+  playerInfo: {fileID: 0}
   gunBarrel: {fileID: 603307043148628498}
+  gameManager: {fileID: 0}
 --- !u!95 &5115919018550101955
 Animator:
   serializedVersion: 4
@@ -207,6 +212,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &2780216201313207825
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664373205062893865}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.047944784, y: 0.12590402}
+  m_Size: {x: 0.90575874, y: 1.2614166}
+  m_Direction: 0
+--- !u!50 &4355349525063816527
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664373205062893865}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7958821948766517669
 GameObject:
   m_ObjectHideFlags: 0

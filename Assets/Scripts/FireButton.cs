@@ -53,7 +53,6 @@ public class FireButton : MonoBehaviour
     }
     private void Shooting()
     {
-        Debug.Log(reloadTime);
         if (readyToShoot < Time.time)
         {
             readyToShoot = Time.time + reloadTime;
