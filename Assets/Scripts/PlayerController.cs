@@ -15,8 +15,10 @@ public class PlayerController : MonoBehaviour
     public Transform playerInfo;
     public Transform gunBarrel;
     public GameManager gameManager;
+    public Text pointsCounter;
     private Image healthLevel;
     private PhotonView view;
+    private int points = 0;
     private float borderX = 11;
     private float borderY = 5;
 
@@ -77,6 +79,12 @@ public class PlayerController : MonoBehaviour
             if (healthLevel.fillAmount < 0.7) healthLevel.color = Color.yellow;
             if (healthLevel.fillAmount < 0.4) healthLevel.color = Color.red;
             gameManager.SendPlayerHealth(playerInfo.GetComponent<PhotonView>().ViewID, healthLevel.fillAmount);
+        }
+        else if (other.CompareTag("Money"))
+        {
+            PhotonNetwork.Destroy(other.gameObject);
+            points++;
+            pointsCounter.text = points.ToString();
         }
     }
 }

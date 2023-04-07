@@ -192,6 +192,7 @@ MonoBehaviour:
   playerInfo: {fileID: 0}
   gunBarrel: {fileID: 603307043148628498}
   gameManager: {fileID: 0}
+  pointsCounter: {fileID: 0}
 --- !u!95 &5115919018550101955
 Animator:
   serializedVersion: 4
